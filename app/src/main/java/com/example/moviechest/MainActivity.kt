@@ -8,43 +8,51 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.moviechest.R.layout.item_movie
 
+private val movies = mutableListOf(
+    MovieItem(
+        R.string.la_casa_del_papel.toString(),
+        R.drawable.la_casa_del_papel,
+        R.string.buttonItem.toString()
+    ),
+    MovieItem(
+        R.string.razzhimaya_kulaki.toString(),
+        R.drawable.razhimaya_kulaki,
+        R.string.buttonItem.toString()
+    ),
+    MovieItem(
+        R.string.years_and_years.toString(),
+        R.drawable.years_and_years,
+        R.string.buttonItem.toString()
+    )
+)
 class MainActivity : AppCompatActivity() {
 
-lateinit var filmName1 : TextView
-lateinit var filmName2 : TextView
-lateinit var filmName3 : TextView
+    private val recyclerView by lazy { findViewById<RecyclerView>(R.id.recycler) }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
         setContentView(R.layout.activity_main)
 
-            filmName1 = findViewById<TextView>(R.id.filmName1)
-            val button1 = findViewById<Button>(R.id.button1)
-        button1.setOnClickListener{
-filmName1.setTextColor(Color.parseColor("#FF03DAC5"))
-            startActivity(Intent(this, LaCasaDelPapel::class.java))
-        }
-        filmName2 = findViewById<TextView>(R.id.filmName2)
-        val button2 = findViewById<Button>(R.id.button2)
-        button2.setOnClickListener {
-            filmName2.setTextColor(Color.parseColor("#FF03DAC5"))
-            startActivity(Intent(this, YearsAndYears::class.java))
+        initRecycler()
+//      initClickListeners()
+
+
+    }
+
+    private fun initRecycler() {
+        val adapter = MovieAdapter(movies)
+        val layoutManager = LinearLayoutManager(this)
+          recyclerView.layoutManager = layoutManager
+           recyclerView.adapter = adapter
+
         }
 
-        filmName3 = findViewById<TextView>(R.id.filmName3)
-        val button3 = findViewById<Button>(R.id.button3)
-        button3.setOnClickListener {
-            filmName3.setTextColor(Color.parseColor("#FF03DAC5"))
-            startActivity(Intent(this, RazhimayaKulaki::class.java))
-        }
+    }
 
-        findViewById<Button>(R.id.buttonInvite).setOnClickListener{
-findViewById<TextView>(R.id.EmailAddress).visibility = View.VISIBLE
-        }
-    }
-    }
 
 

@@ -1,10 +1,11 @@
 <resources>
-    <string name="app_name">MovieChest</string>
+    <string name="app_name" translatable="false">MovieChest</string>
+    <string name="buttonItem">Детали</string>
     <string name="la_casa_del_papel">La casa del papel</string>
-    <string name="years_and_years">Years and Years</string>
+    <string name="years_and_years" translatable="false">Years and Years</string>
     <string name="razzhimaya_kulaki">Разжимая кулаки</string>
-    <string name="laCasaDelPapelDescription">История о преступниках, решивших ограбить Королевский монетный двор Испании и украсть 2,4 млрд евро.</string>
-<string name="yearsAndYearsDescription">Обычная семья проживает шокирующие мировые события. Фантастическая драма о ближайшем будущем с Эммой Томпсон</string>
-    <string name="razzhimayaKulakiDescription">Сыновей и дочь Заур воспитывает строго. Старший сын Аким уже сбежал в Ростов — на заработки. Младший, Дакко, еще не вполне осознал, чего он хочет от жизни, а дочь Ада активно строит планы побега. Ада уже взрослая девушка, но отец по-прежнему видит ее маленьким беззащитным ребенком. Разомкнуть крепкие отцовские объятия, чтобы наконец начать самостоятельную жизнь, оказывается сложнее, чем казалось.</string>
-<string name="email">e-mail</string>
+    <string name="laCasaDelPapelDescription" translatable="false">История о преступниках, решивших ограбить Королевский монетный двор Испании и украсть 2,4 млрд евро.</string>
+<string name="yearsAndYearsDescription" translatable="false">Обычная семья проживает шокирующие мировые события. Фантастическая драма о ближайшем будущем с Эммой Томпсон</string>
+    <string name="razzhimayaKulakiDescription" translatable="false">Сыновей и дочь Заур воспитывает строго. Старший сын Аким уже сбежал в Ростов — на заработки. Младший, Дакко, еще не вполне осознал, чего он хочет от жизни, а дочь Ада активно строит планы побега. Ада уже взрослая девушка, но отец по-прежнему видит ее маленьким беззащитным ребенком. Разомкнуть крепкие отцовские объятия, чтобы наконец начать самостоятельную жизнь, оказывается сложнее, чем казалось.</string>
+<string name="email" translatable="false">e-mail</string>
 </resources>
