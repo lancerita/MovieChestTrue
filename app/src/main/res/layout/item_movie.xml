@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="@color/gray">
 
     <ImageView
         android:id="@+id/imageViewItem"
@@ -27,7 +28,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/la_casa_del_papel"
         android:textColor="@color/purple_700"
-        android:textSize="12dp"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/imageViewItem"
         app:layout_constraintTop_toTopOf="parent" />
 

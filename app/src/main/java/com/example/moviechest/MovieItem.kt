@@ -1,3 +1,9 @@
 package com.example.moviechest
 
-data class MovieItem(val title: String, val imageId: Int, val button: String)
+data class MovieItem(
+    val title: String,
+    val imageId: Int,
+    val button: String,
+    var isfavorites: Boolean,
+    var id: Int = 0
+)

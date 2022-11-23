@@ -4,8 +4,14 @@
     <string name="la_casa_del_papel">La casa del papel</string>
     <string name="years_and_years" translatable="false">Years and Years</string>
     <string name="razzhimaya_kulaki">Разжимая кулаки</string>
+    <string name="perfect_sence">Последняя любовь на земле</string>
+    <string name="bottle_shock">Шоковый эффект</string>
+    <string name="black_sails">Черные паруса</string>
+    <string name="perfectSenceDecription" translatable="false">Как выжить без органов чувств? Атмосферная драма о конце света с потрясающим дуэтом Юэна МакГрегора и Евы Грин</string>
+    <string name="bottleShockDecription" translatable="false">Фильм основан на реальных событиях. В 1976 году небольшая американская винодельня произвела фурор на конкурсе вин во Франции. Их вино в конкурсе, на котором дегустация происходила вслепую, победило, сделав Калифорнию известным мировым поставщиком вин.</string>
     <string name="laCasaDelPapelDescription" translatable="false">История о преступниках, решивших ограбить Королевский монетный двор Испании и украсть 2,4 млрд евро.</string>
-<string name="yearsAndYearsDescription" translatable="false">Обычная семья проживает шокирующие мировые события. Фантастическая драма о ближайшем будущем с Эммой Томпсон</string>
+    <string name="yearsAndYearsDescription" translatable="false">Обычная семья проживает шокирующие мировые события. Фантастическая драма о ближайшем будущем с Эммой Томпсон</string>
     <string name="razzhimayaKulakiDescription" translatable="false">Сыновей и дочь Заур воспитывает строго. Старший сын Аким уже сбежал в Ростов — на заработки. Младший, Дакко, еще не вполне осознал, чего он хочет от жизни, а дочь Ада активно строит планы побега. Ада уже взрослая девушка, но отец по-прежнему видит ее маленьким беззащитным ребенком. Разомкнуть крепкие отцовские объятия, чтобы наконец начать самостоятельную жизнь, оказывается сложнее, чем казалось.</string>
-<string name="email" translatable="false">e-mail</string>
+    <string name="blackSailsDecription" translatable="false">У клада на острове сокровищ есть своя предыстория. Пиратская сага о капитане Флинте и молодом Джоне Сильвере</string>
+    <string name="email" translatable="false">e-mail</string>
 </resources>

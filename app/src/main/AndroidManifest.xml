@@ -18,10 +18,7 @@
         <activity
             android:name=".RazhimayaKulaki"
             android:exported="false" />
-        <activity
-            android:name=".LaCasaDelPapel"
-            android:exported="false" />
-        <activity
+                <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
