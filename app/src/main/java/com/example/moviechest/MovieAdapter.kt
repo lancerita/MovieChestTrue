@@ -5,19 +5,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.ListAdapter
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 
-class MovieAdapter
-    (
-    private val movies: ArrayList<MovieItem>,
+class MovieAdapter(
+    private val movies: List<MovieItem>,
     val listener: MoviesClicklistener
 ) :
-   //ListAdapter<MovieAdapter.MovieViewHolder>(MovieItemDiffCallBack()){
     RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
-// вместо RV.Adapter должно  быть наследование от ListAdapter(DiffCallback()), но выдает ошибку
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -28,27 +25,37 @@ class MovieAdapter
         holder.bind(movies[position], listener)
     }
 
+    fun updateMovie(movie: MovieItem) {
+        val position = movies.indexOf(movie)
+        if (position > 0) {
+            notifyItemChanged(position)
+        }
+    }
+
     override fun getItemCount(): Int = movies.size
 
     class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val titleText: TextView = itemView.findViewById(R.id.textViewItem)
         val pictureImage: ImageView = itemView.findViewById(R.id.imageViewItem)
         val buttonDetails: Button = itemView.findViewById(R.id.buttonItem)
+        val buttonMakeFavorite: ImageView = itemView.findViewById(R.id.buttonMakeFavorite)
 
         fun bind(item: MovieItem, listener: MoviesClicklistener) {
-            titleText.text = item.title
-            buttonDetails.text = item.button
+            titleText.setText(item.titleId)
+            buttonDetails.setText(item.buttonDetails)
             pictureImage.setImageResource(item.imageId)
-            pictureImage.setOnClickListener {
-listener.onFavoriteClick(item)
-            }
             buttonDetails.setOnClickListener {
-listener.onMoviesClick(item)
+                listener.onMoviesClick(item)
+            }
+            buttonMakeFavorite.setImageResource(item.imageButtonMakeFavorite)
+            buttonMakeFavorite.setOnClickListener {
+                listener.onFavoriteClick(item)
             }
         }
     }
+
     interface MoviesClicklistener {
-        fun onMoviesClick(item: MovieItem)
+        fun onMoviesClick(movie: MovieItem)
         fun onFavoriteClick(item: MovieItem)
     }
 }

@@ -6,4 +6,7 @@
     <string name="perfect_sence">Perfect Sence</string>
     <string name="bottle_shock">Bottle Shock</string>
     <string name="black_sails">Black Sails</string>
+    <string name="favorites">Favorites</string>
+    <string name="allMovies">All Movies</string>
+    <string name="movieCard">Movie\'s card</string>
 </resources>

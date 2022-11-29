@@ -14,4 +14,7 @@
     <string name="razzhimayaKulakiDescription" translatable="false">Сыновей и дочь Заур воспитывает строго. Старший сын Аким уже сбежал в Ростов — на заработки. Младший, Дакко, еще не вполне осознал, чего он хочет от жизни, а дочь Ада активно строит планы побега. Ада уже взрослая девушка, но отец по-прежнему видит ее маленьким беззащитным ребенком. Разомкнуть крепкие отцовские объятия, чтобы наконец начать самостоятельную жизнь, оказывается сложнее, чем казалось.</string>
     <string name="blackSailsDecription" translatable="false">У клада на острове сокровищ есть своя предыстория. Пиратская сага о капитане Флинте и молодом Джоне Сильвере</string>
     <string name="email" translatable="false">e-mail</string>
+    <string name="favorites">Избранное</string>
+    <string name="allMovies">Список всех фильмов</string>
+    <string name="movieCard">Карточка фильма</string>
 </resources>

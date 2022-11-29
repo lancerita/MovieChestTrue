@@ -3,24 +3,35 @@ package com.example.moviechest
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.example.moviechest.databinding.ActivityMainBinding
+import com.example.moviechest.databinding.ActivityMovieBinding
 
-lateinit var binding: ActivityMainBinding
+class MovieActivity : AppCompatActivity() {
 
-class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMovieBinding
+
+    private val movie by lazy { intent.getParcelableExtra<MovieItem>("OPEN_MOVIE") }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMovieBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        goToAllMovies()
         initNavigationBottom()
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = getString(R.string.movieCard)
+        showMovie(movie!!)
     }
 
-    private fun goToAllMovies() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, MoviesFragment.newInstance(isFavourite = false))
-            .commit()
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) finish()
+        return true
+    }
+
+    private fun showMovie(movie: MovieItem) {
+        binding.apply {
+            nameTextView.setText(movie.titleId)
+            imageView.setImageResource(movie.imageId)
+            descriptionTextView.setText(movie.description)
+        }
     }
 
     private fun initNavigationBottom() {
@@ -54,8 +65,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId ==android.R.id.home) finish()
-        return true
-    }
 }

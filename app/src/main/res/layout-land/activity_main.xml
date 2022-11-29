@@ -4,17 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
 
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/gray"
+    android:layout_height="wrap_content"
+    android:background="@android:color/holo_blue_dark"
     android:fitsSystemWindows="false"
     tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler"
+    <LinearLayout
+        android:id="@+id/fragment_full_screen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:itemCount="3"
-        app:spanCount="2"
-        tools:listitem="@layout/item_movie"/>
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:backgroundTint="@color/material_dynamic_tertiary70"
+            app:menu="@menu/bottom_menu" />
+
+    </LinearLayout>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

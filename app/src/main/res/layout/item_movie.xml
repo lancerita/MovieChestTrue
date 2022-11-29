@@ -24,23 +24,35 @@
         android:id="@+id/textViewItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
         android:text="@string/la_casa_del_papel"
-        android:textColor="@color/purple_700"
-        android:textSize="12sp"
+        android:textColor="#5E555C"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/imageViewItem"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_width="106dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="10dp"
         android:layout_marginBottom="8dp"
-        android:backgroundTint="@color/cold_pink"
+        android:backgroundTint="#5E555C"
         android:text="@string/buttonItem"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewItem"
         app:layout_constraintStart_toEndOf="@+id/imageViewItem"
         tools:ignore="TextContrastCheck" />
+
+    <ImageButton
+        android:id="@+id/buttonMakeFavorite"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/buttonItem"
+        app:layout_constraintTop_toBottomOf="@+id/textViewItem"
+        app:srcCompat="@drawable/ic_baseline_favorite_border_24"
+        tools:ignore="SpeakableTextPresentCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

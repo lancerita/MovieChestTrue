@@ -1,9 +1,17 @@
 package com.example.moviechest
 
+import android.os.Parcelable
+import androidx.annotation.StringRes
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class MovieItem(
-    val title: String,
+    @StringRes
+    val titleId: Int,
     val imageId: Int,
-    val button: String,
+    val buttonDetails: Int,
+    val imageButtonMakeFavorite: Int,
     var isfavorites: Boolean,
-    var id: Int = 0
-)
+    val description: Int,
+    val id: Int = 0
+) : Parcelable
