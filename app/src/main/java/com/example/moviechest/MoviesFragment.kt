@@ -1,6 +1,7 @@
 package com.example.moviechest
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviechest.databinding.FragmentMoviesBinding
 
@@ -39,19 +41,23 @@ class MoviesFragment : Fragment() {
             } else {
                 MoviesStorage.getAllMovies()
             }
-            recycler.layoutManager = LinearLayoutManager(context)
+            if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                recycler.layoutManager = GridLayoutManager(context, 2)
+            } else {
+                recycler.layoutManager = LinearLayoutManager(context)
+            }
             val listener = object : MovieAdapter.MoviesClicklistener {
 
                 override fun onMoviesClick(movie: MovieItem) {
-                        val intent = Intent(activity, MovieActivity::class.java)
-                        intent.putExtra("OPEN_MOVIE", movie)
-                        startActivity(intent)
-                        Log.d("smth", "open activity")
+                    val intent = Intent(activity, MovieActivity::class.java)
+                    intent.putExtra("OPEN_MOVIE", movie)
+                    startActivity(intent)
+                    Log.d("smth", "open activity")
                 }
 
                 override fun onFavoriteClick(item: MovieItem, position: Int) {
                     Toast.makeText(activity, "Favorite Click", Toast.LENGTH_SHORT).show()
-                   // item.isfavorites = !item.isfavorites
+                    // item.isfavorites = !item.isfavorites
                     //(recycler.adapter as MovieAdapter).updateMovie(item)
                     movies[position].isfavorites = !item.isfavorites
                     recycler.adapter?.notifyItemChanged(position)
