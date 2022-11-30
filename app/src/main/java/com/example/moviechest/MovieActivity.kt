@@ -57,6 +57,13 @@ class MovieActivity : AppCompatActivity() {
                     supportActionBar?.title = getString(R.string.allMovies)
                 }
 
+                //Удаляет все фильмы из избранного, а не один
+                R.id.button_remove_from_favorites ->{
+                    if (movie?.isfavorites == true) {
+                        movie?.isfavorites = false
+                    }
+                }
+
                 else -> {
                     return@setOnItemSelectedListener false
                 }

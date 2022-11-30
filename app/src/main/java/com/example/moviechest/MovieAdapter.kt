@@ -49,13 +49,13 @@ class MovieAdapter(
             }
             buttonMakeFavorite.setImageResource(item.imageButtonMakeFavorite)
             buttonMakeFavorite.setOnClickListener {
-                listener.onFavoriteClick(item)
+                listener.onFavoriteClick(item, adapterPosition)
             }
         }
     }
 
     interface MoviesClicklistener {
         fun onMoviesClick(movie: MovieItem)
-        fun onFavoriteClick(item: MovieItem)
+        fun onFavoriteClick(item: MovieItem, position: Int)
     }
 }
