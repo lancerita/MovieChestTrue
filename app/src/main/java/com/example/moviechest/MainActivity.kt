@@ -45,6 +45,9 @@ class MainActivity : AppCompatActivity() {
                         .commit()
                     supportActionBar?.title = getString(R.string.allMovies)
                 }
+                R.id.button_exit -> {
+                    onBackPressed()
+                }
 
                 else -> {
                     return@setOnItemSelectedListener false

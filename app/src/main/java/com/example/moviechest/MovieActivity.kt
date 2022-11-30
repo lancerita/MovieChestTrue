@@ -56,14 +56,9 @@ class MovieActivity : AppCompatActivity() {
                         .commit()
                     supportActionBar?.title = getString(R.string.allMovies)
                 }
-
-                //Удаляет все фильмы из избранного, а не один
-                R.id.button_remove_from_favorites ->{
-                    if (movie?.isfavorites == true) {
-                        movie?.isfavorites = false
-                    }
+                R.id.button_exit -> {
+                    onBackPressed()
                 }
-
                 else -> {
                     return@setOnItemSelectedListener false
                 }
@@ -71,5 +66,4 @@ class MovieActivity : AppCompatActivity() {
             return@setOnItemSelectedListener true
         }
     }
-
 }
