@@ -1,15 +1,18 @@
 package com.example.moviechest
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import com.example.moviechest.databinding.ActivityMovieBinding
 
 class MovieActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMovieBinding
 
-    private val movie by lazy { intent.getParcelableExtra<MovieItem>("OPEN_MOVIE") }
+    private val movie by lazy { intent.getParcelableExtra<MovieItem>(ARG_MOVIE)!! }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +21,7 @@ class MovieActivity : AppCompatActivity() {
         initNavigationBottom()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.movieCard)
-        showMovie(movie!!)
+        showMovie(movie)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -64,6 +67,17 @@ class MovieActivity : AppCompatActivity() {
                 }
             }
             return@setOnItemSelectedListener true
+        }
+    }
+
+    companion object {
+
+        private const val ARG_MOVIE = "movie_key"
+
+        fun getIntent(context: Context, movie: MovieItem): Intent {
+            return Intent(context, MovieActivity::class.java).apply {
+                putExtra(ARG_MOVIE, movie)
+            }
         }
     }
 }

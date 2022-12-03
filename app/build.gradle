@@ -3,7 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
-   }
+    //id 'androidx.navigation.safeargs.kotlin'
+}
 
 android {
     compileSdk 32
@@ -37,11 +38,17 @@ android {
     buildFeatures {
         viewBinding true
     }
+    buildscript {
+        repositories {
+            google()
+        }
+    }
 }
 
 dependencies {
-
-    implementation 'androidx.core:core-ktx:1.7.0'
+    //val nav_version = "2.5.3"
+    //classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
+        implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'

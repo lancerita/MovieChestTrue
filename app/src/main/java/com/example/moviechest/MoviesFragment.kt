@@ -1,6 +1,5 @@
 package com.example.moviechest
 
-import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
@@ -49,20 +48,25 @@ class MoviesFragment : Fragment() {
             val listener = object : MovieAdapter.MoviesClicklistener {
 
                 override fun onMoviesClick(movie: MovieItem) {
-                    val intent = Intent(activity, MovieActivity::class.java)
-                    intent.putExtra("OPEN_MOVIE", movie)
+                    val intent = MovieActivity.getIntent(requireContext(), movie)
                     startActivity(intent)
                     Log.d("smth", "open activity")
                 }
 
                 override fun onFavoriteClick(item: MovieItem, position: Int) {
                     Toast.makeText(activity, "Favorite Click", Toast.LENGTH_SHORT).show()
-                    (recycler.adapter as MovieAdapter).updateMovie(item)
-                    movies[position].isfavorites = !item.isfavorites
-                    recycler.adapter?.notifyItemChanged(position)
+                   // (recycler.adapter as MovieAdapter).updateMovie(item)
+                    if (isFavourite) {
+                        val adapter = recycler.adapter as? MovieAdapter ?: return
+                        movies[position].isFavorites = false
+                        adapter.removeItem(position)
+                    } else {
+                        movies[position].isFavorites = !item.isFavorites
+                        recycler.adapter?.notifyItemChanged(position)
+                    }
                 }
             }
-            recycler.adapter = MovieAdapter(movies, listener)
+            recycler.adapter = MovieAdapter(movies.toMutableList(), listener)
         }
     }
 

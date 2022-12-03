@@ -11,7 +11,18 @@ data class MovieItem(
     val imageId: Int,
     val buttonDetails: Int,
     val imageButtonMakeFavorite: Int,
-    var isfavorites: Boolean,
+    var isFavorites: Boolean,
     val description: Int,
     val id: Int = 0
 ) : Parcelable
+
+//private companion object: Parceler<MovieItem> {
+//    override fun MovieItem.write(parcel: Parcel, flags: Int) {
+//
+//    }
+//
+//    override fun create(parcel: Parcel): MovieItem {
+//
+//    }
+//}
+

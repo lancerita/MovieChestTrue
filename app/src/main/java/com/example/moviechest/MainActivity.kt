@@ -46,19 +46,17 @@ class MainActivity : AppCompatActivity() {
                     supportActionBar?.title = getString(R.string.allMovies)
                 }
                 R.id.button_exit -> {
-                    onBackPressed()
+                    val exitDialogFragment = ExitDialogFragment()
+                    exitDialogFragment.show(
+                        supportFragmentManager,
+                        "exitDialog"
+                    )
                 }
-
                 else -> {
                     return@setOnItemSelectedListener false
                 }
             }
             return@setOnItemSelectedListener true
         }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.itemId ==android.R.id.home) finish()
-        return true
     }
 }

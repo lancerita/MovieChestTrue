@@ -8,7 +8,7 @@ object MoviesStorage {
             R.drawable.la_casa_del_papel,
             R.string.buttonItem,
             R.drawable.ic_baseline_favorite_border_24,
-            isfavorites = false,
+            isFavorites = false,
             R.string.laCasaDelPapelDescription
         ),
         MovieItem(
@@ -16,7 +16,7 @@ object MoviesStorage {
             R.drawable.razhimaya_kulaki,
             R.string.buttonItem,
             R.drawable.ic_baseline_favorite_border_24,
-            isfavorites = false,
+            isFavorites = false,
             R.string.razzhimayaKulakiDescription
         ),
         MovieItem(
@@ -24,7 +24,7 @@ object MoviesStorage {
             R.drawable.years_and_years,
             R.string.buttonItem,
             R.drawable.ic_baseline_favorite_border_24,
-            isfavorites = false,
+            isFavorites = false,
             R.string.yearsAndYearsDescription
         ),
         MovieItem(
@@ -32,7 +32,7 @@ object MoviesStorage {
             R.drawable.bottle_shock,
             R.string.buttonItem,
             R.drawable.ic_baseline_favorite_border_24,
-            isfavorites = false,
+            isFavorites = false,
             R.string.bottleShockDecription
         ),
         MovieItem(
@@ -40,7 +40,7 @@ object MoviesStorage {
             R.drawable.perfect_sence,
             R.string.buttonItem,
             R.drawable.ic_baseline_favorite_border_24,
-            isfavorites = false,
+            isFavorites = false,
             R.string.perfectSenceDecription
         ),
         MovieItem(
@@ -48,7 +48,7 @@ object MoviesStorage {
             R.drawable.black_sails,
             R.string.buttonItem,
             R.drawable.ic_baseline_favorite_border_24,
-            isfavorites = false,
+            isFavorites = false,
             R.string.blackSailsDecription
         )
     )
@@ -58,6 +58,6 @@ object MoviesStorage {
     }
 
     fun getFavoriteMovies(): List<MovieItem> {
-        return movies.filter { it.isfavorites }
+        return movies.filter { it.isFavorites }
     }
 }

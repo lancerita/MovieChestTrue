@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 
 class MovieAdapter(
-    private val movies: List<MovieItem>,
+    private val movies: MutableList<MovieItem>,
     val listener: MoviesClicklistener
 ) :
     RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
@@ -30,6 +30,11 @@ class MovieAdapter(
         if (position > 0) {
             notifyItemChanged(position)
         }
+    }
+
+    fun removeItem(position: Int) {
+        movies.removeAt(position)
+        notifyItemRemoved(position)
     }
 
     override fun getItemCount(): Int = movies.size
