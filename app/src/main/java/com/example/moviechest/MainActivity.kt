@@ -1,7 +1,6 @@
 package com.example.moviechest
 
 import android.os.Bundle
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.moviechest.databinding.ActivityMainBinding
 

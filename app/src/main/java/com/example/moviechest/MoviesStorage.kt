@@ -2,14 +2,15 @@ package com.example.moviechest
 
 object MoviesStorage {
 
-    private val movies = arrayListOf(
+    private val movies = mutableListOf(
         MovieItem(
             R.string.la_casa_del_papel,
             R.drawable.la_casa_del_papel,
             R.string.buttonItem,
             R.drawable.ic_baseline_favorite_border_24,
             isFavorites = false,
-            R.string.laCasaDelPapelDescription
+            R.string.laCasaDelPapelDescription,
+            id = 1
         ),
         MovieItem(
             R.string.razzhimaya_kulaki,
@@ -17,7 +18,8 @@ object MoviesStorage {
             R.string.buttonItem,
             R.drawable.ic_baseline_favorite_border_24,
             isFavorites = false,
-            R.string.razzhimayaKulakiDescription
+            R.string.razzhimayaKulakiDescription,
+            id = 2
         ),
         MovieItem(
             R.string.years_and_years,
@@ -25,7 +27,8 @@ object MoviesStorage {
             R.string.buttonItem,
             R.drawable.ic_baseline_favorite_border_24,
             isFavorites = false,
-            R.string.yearsAndYearsDescription
+            R.string.yearsAndYearsDescription,
+            id = 3
         ),
         MovieItem(
             R.string.bottle_shock,
@@ -33,7 +36,8 @@ object MoviesStorage {
             R.string.buttonItem,
             R.drawable.ic_baseline_favorite_border_24,
             isFavorites = false,
-            R.string.bottleShockDecription
+            R.string.bottleShockDecription,
+            id = 4
         ),
         MovieItem(
             R.string.perfect_sence,
@@ -41,7 +45,8 @@ object MoviesStorage {
             R.string.buttonItem,
             R.drawable.ic_baseline_favorite_border_24,
             isFavorites = false,
-            R.string.perfectSenceDecription
+            R.string.perfectSenceDecription,
+            id = 5
         ),
         MovieItem(
             R.string.black_sails,
@@ -49,9 +54,14 @@ object MoviesStorage {
             R.string.buttonItem,
             R.drawable.ic_baseline_favorite_border_24,
             isFavorites = false,
-            R.string.blackSailsDecription
+            R.string.blackSailsDecription,
+            id = 6
         )
     )
+
+    fun updateItem(position: Int, movieItem: MovieItem) {
+        movies.indexOf() = movieItem
+    }
 
     fun getAllMovies(): List<MovieItem> {
         return movies

@@ -15,6 +15,7 @@ import com.example.moviechest.databinding.FragmentMoviesBinding
 
 class MoviesFragment : Fragment() {
 
+    private var movies = MoviesStorage.getAllMovies()
     private val isFavourite: Boolean by lazy { requireArguments().getBoolean(ARG_IS_FAVOURITE) }
 
     private lateinit var binding: FragmentMoviesBinding
@@ -35,10 +36,11 @@ class MoviesFragment : Fragment() {
 
     private fun initRecyclerView() {
         binding.apply {
-            val movies = if (isFavourite) {
-                MoviesStorage.getFavoriteMovies()
-            } else {
+
+            movies = if (!isFavourite) {
                 MoviesStorage.getAllMovies()
+            } else {
+                MoviesStorage.getFavoriteMovies()
             }
             if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 recycler.layoutManager = GridLayoutManager(context, 2)
@@ -55,17 +57,20 @@ class MoviesFragment : Fragment() {
 
                 override fun onFavoriteClick(item: MovieItem, position: Int) {
                     Toast.makeText(activity, "Favorite Click", Toast.LENGTH_SHORT).show()
-                    if (isFavourite) {
-                        val adapter = recycler.adapter as? MovieAdapter ?: return
-                        movies[position].isFavorites = false
-                        adapter.removeItem(position)
-                    } else {
-                        movies[position].isFavorites = !item.isFavorites
-                        recycler.adapter?.notifyItemChanged(position)
+                    val newItem = movies[position].copy(isFavorites = true)
+                    movies = movies.toMutableList().apply {
+                        set(position, item)
                     }
+                    MoviesStorage.updateItem(position, newItem)
+                    val adapter = recycler.adapter as? MovieAdapter ?: return
+                    adapter.updateMovieList(movies)
+                    //adapter.updateMoviesList().submitList(MoviesStorage.getAllMovies())
                 }
             }
-            recycler.adapter = MovieAdapter(movies.toMutableList(), listener)
+            recycler.adapter = MovieAdapter(listener).apply {
+                updateMovieList(movies)
+            }
+
         }
     }
 

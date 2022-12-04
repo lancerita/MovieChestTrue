@@ -1,20 +1,25 @@
 package com.example.moviechest
 
+import android.annotation.SuppressLint
+import android.graphics.Movie
+import android.os.Build.VERSION_CODES.M
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 
 
 class MovieAdapter(
-    private val movies: MutableList<MovieItem>,
-    val listener: MoviesClicklistener
+    private val listener: MoviesClicklistener
 ) :
     RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+
+    private var oldList = emptyList<MovieItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -22,22 +27,15 @@ class MovieAdapter(
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bind(movies[position], listener)
+        holder.bind(oldList[position], listener)
     }
 
-    fun updateMovie(movie: MovieItem) {
-        val position = movies.indexOf(movie)
-        if (position > 0) {
-            notifyItemChanged(position)
-        }
-    }
+    override fun getItemCount(): Int = oldList.size
 
-    fun removeItem(position: Int) {
-        movies.removeAt(position)
-        notifyItemRemoved(position)
+    fun updateMovieList(newList: List<MovieItem>) {
+        this.oldList = newList
+        notifyDataSetChanged()
     }
-
-    override fun getItemCount(): Int = movies.size
 
     class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val titleText: TextView = itemView.findViewById(R.id.textViewItem)
