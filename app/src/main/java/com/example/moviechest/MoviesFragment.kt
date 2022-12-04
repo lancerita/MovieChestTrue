@@ -55,7 +55,6 @@ class MoviesFragment : Fragment() {
 
                 override fun onFavoriteClick(item: MovieItem, position: Int) {
                     Toast.makeText(activity, "Favorite Click", Toast.LENGTH_SHORT).show()
-                   // (recycler.adapter as MovieAdapter).updateMovie(item)
                     if (isFavourite) {
                         val adapter = recycler.adapter as? MovieAdapter ?: return
                         movies[position].isFavorites = false
