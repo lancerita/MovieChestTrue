@@ -7,14 +7,13 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 
 class ExitDialogFragment: DialogFragment() {
-    val mainActivity = MainActivity()
-
+  
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
             builder.setMessage("Выйти из приложения?")
             .setPositiveButton("Да, выйти") {
-                dialog, id -> mainActivity.onBackPressed()
+                dialog, id -> MainActivity().onBackPressed()
             }
                 .setNegativeButton("Heт, остаться") {
                         dialog, id ->dialog.cancel()
