@@ -9,4 +9,7 @@
     <string name="favorites">Favorites</string>
     <string name="allMovies">All Movies</string>
     <string name="movieCard">Movie\'s card</string>
+    <string name="exit_question">Exit</string>
+    <string name="exit_agree">Yes</string>
+    <string name="exite_refuse">No</string>
 </resources>

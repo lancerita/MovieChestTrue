@@ -17,4 +17,8 @@
     <string name="favorites">Избранное</string>
     <string name="allMovies">Список всех фильмов</string>
     <string name="movieCard">Карточка фильма</string>
+    <string name="exit_question">Выйти из приложения?</string>
+    <string name="exit_agree">Да, выйти</string>
+    <string name="exite_refuse">Heт, остаться</string>
+    <string name="activity_cannot_be_null" translatable="false">Activity cannot be null</string>
 </resources>
